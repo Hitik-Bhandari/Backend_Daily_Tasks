@@ -3,19 +3,19 @@ import { Product } from "../models/productModel.js";
 const createProduct = async (req, res) => {
     try {
         const user = req.user;
-        const {productName, productDescription, productPrice, productImage} = req.body;
+        const {productName, productDescription, productPrice, productImage, category_id, subCategory_id} = req.body;
         // const {productImage} = req.files;
 
         // console.log("productImage",productImage)
 
-        if(!productName || !productDescription || !productPrice || !productImage) return res.status(400).json({success: false, message: "Product Name, Description, Image and Price all are required fields"});
+        if(!productName || !productDescription || !productPrice || !productImage || !category_id || !subCategory_id) return res.status(400).json({success: false, message: "Product Name, Description, Image and Price all are required fields"});
         
         console.log(productImage)
         // const ImageArray = productImage.map( (elem) => elem.path.replace("public/", ""))
         // const ImageArray = productImage.map( (elem) => "Images/" + elem.filename)
         // console.log(ImageArray)
         
-        const createProduct = await Product.create({productName, productDescription, productPrice, productImage, user_id: user._id});
+        const createProduct = await Product.create({productName, productDescription, productPrice, productImage, category_id, subCategory_id, user_id: user._id});
 
         return res.status(201).json({
             success: true,

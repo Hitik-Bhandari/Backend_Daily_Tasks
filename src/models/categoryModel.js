@@ -2,9 +2,13 @@ import { Schema, model } from "mongoose";
 
 const categorySchema = new Schema(
     {
-        categoryName: {
+        name: {
             type: String,
             required: true
+        },
+        admin_id: {
+            type: Schema.Types.ObjectId,
+            ref: "User"
         }
     }, {timestamps: true}
 )

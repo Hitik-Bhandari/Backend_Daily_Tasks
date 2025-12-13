@@ -20,6 +20,14 @@ const productSchema = new Schema (
             type: [String],
             required: true
         },
+        category_id: {
+            type: Schema.Types.ObjectId,
+            ref: "Category"
+        },
+        subCategory_id: {
+            type: Schema.Types.ObjectId,
+            ref: "SubCategory"
+        },
         user_id: {
             type: Schema.Types.ObjectId,
             ref: "User"

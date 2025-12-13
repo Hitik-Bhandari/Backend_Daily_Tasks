@@ -2,13 +2,17 @@ import { Schema, model } from "mongoose";
 
 const subCategorySchema = new Schema (
     {
-        subCategory: {
+        subname: {
             type: String,
             required: true,
         },
         category_id: {
             type: Schema.Types.ObjectId,
             ref: "Category"
+        },
+        admin_id: {
+            type: Schema.Types.ObjectId,
+            ref: "User"
         }   
     }, {timestamps: true}
 )

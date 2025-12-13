@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { changePassword, login, profile, register, updateProfile } from "../controllers/userControllers.js";
 import { authMiddleware } from "../middleware/authMiddleware.js";
-import { validate } from "../middleware/validate.js";
+import { validate } from "../middleware/validateMiddleware.js";
 import { changePasswordSchema, createUserSchema, getUserParamSchema } from "../validators/userValidator.js";
 import { createProduct, deleteProduct, getProduct, updateProduct } from "../controllers/productControllers.js";
 import upload from "../middleware/multerMiddleware.js";
